@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr">
+<head>
+  <!-- ═══════════════════════════════════════════════
+       META — SEO + Social + Mobile
+  ═══════════════════════════════════════════════ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Free AI Subtitle Generator — SRT, VTT, Urdu, Hindi, English | SubtitleAI</title>
+  <meta name="description" content="Free AI subtitle aur caption generator. Video upload karein aur automatic SRT, VTT subtitles pao. Urdu, Hindi, English, Arabic — 99 languages support. Koi signup nahi.">
+  <meta name="keywords" content="subtitle generator, caption generator, free subtitles, SRT generator, VTT subtitles, Urdu subtitles, Hindi subtitles, video captions, AI subtitles, automatic subtitles, online subtitle maker">
+  <meta name="author" content="SubtitleAI">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="Urdu, English">
+
+  <!-- Open Graph (Facebook, WhatsApp) -->
+  <meta property="og:title" content="Free AI Subtitle Generator — 99 Languages">
+  <meta property="og:description" content="Video upload karein, AI se automatic subtitles pao. Urdu, Hindi, English support. Bilkul free!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com">
+  <meta property="og:image" content="https://yourdomain.com/og-image.png">
+  <meta property="og:site_name" content="SubtitleAI">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free AI Subtitle Generator">
+  <meta name="twitter:description" content="Automatic subtitles for any video. Free, fast, 99 languages.">
+  <meta name="twitter:image" content="https://yourdomain.com/og-image.png">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://yourdomain.com">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SubtitleAI — Free Subtitle Generator",
+    "url": "https://yourdomain.com",
+    "description": "Free AI-powered subtitle and caption generator supporting 99 languages including Urdu, Hindi, English and Arabic.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Automatic subtitle generation",
+      "99 language support",
+      "SRT and VTT format export",
+      "Urdu and Hindi subtitles",
+      "No signup required"
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- ═══════════════════════════════════════════════
+       STYLES
+  ═══════════════════════════════════════════════ -->
+  <style>
+    /* ── Reset & Tokens ─────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #0a0a12;
+      --bg2:       #111120;
+      --bg3:       #1a1a2e;
+      --border:    rgba(255,255,255,0.08);
+      --border2:   rgba(255,255,255,0.15);
+      --accent:    #7c6af7;
+      --accent2:   #a78bfa;
+      --accent3:   #c4b5fd;
+      --text:      #f0f0f5;
+      --text2:     #a0a0b0;
+      --text3:     #666680;
+      --green:     #22c55e;
+      --red:       #ef4444;
+      --yellow:    #f59e0b;
+      --radius:    14px;
+      --radius-sm: 8px;
+      --shadow:    0 4px 24px rgba(0,0,0,0.4);
+      --font:      'Space Grotesk', sans-serif;
+      --font-ur:   'Noto Nastaliq Urdu', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Ad containers (always visible placeholders) ─── */
+    .ad-slot {
+      width: 100%;
+      min-height: 90px;
+      background: var(--bg2);
+      border: 1px dashed var(--border2);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--text3);
+      overflow: hidden;
+    }
+    .ad-slot-square { min-height: 250px; }
+    .ad-slot-leader { min-height: 90px; }
+
+    /* ── Header ─────────────────────────────────── */
+    header {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .logo-icon { font-size: 24px; }
+    .logo span { color: var(--accent2); }
+    nav { display: flex; gap: 4px; }
+    nav a {
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 14px;
+      color: var(--text2);
+      transition: all .2s;
+    }
+    nav a:hover { background: var(--bg3); color: var(--text); }
+
+    /* ── Hero ───────────────────────────────────── */
+    .hero {
+      padding: 60px 20px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(124,106,247,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(124,106,247,0.15);
+      border: 1px solid rgba(124,106,247,0.3);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 13px;
+      color: var(--accent3);
+      margin-bottom: 20px;
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.5; transform:scale(1.4); }
+    }
+    h1 {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    h1 .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--text2);
+      max-width: 560px;
+      margin: 0 auto 30px;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent2);
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text3);
+    }
+
+    /* ── Top Leaderboard Ad ─────────────────────── */
+    .ad-top-wrap {
+      max-width: 1200px;
+      margin: 0 auto 24px;
+      padding: 0 20px;
+    }
+
+    /* ── Main layout ─────────────────────────────── */
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .main { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+    }
+
+    /* ── App Card ────────────────────────────────── */
+    .app-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .app-card-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .app-card-header h2 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .free-badge {
+      background: rgba(34,197,94,0.15);
+      border: 1px solid rgba(34,197,94,0.3);
+      color: var(--green);
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── Upload Zone ─────────────────────────────── */
+    .upload-zone {
+      margin: 20px 24px 0;
+      border: 2px dashed var(--border2);
+      border-radius: var(--radius);
+      padding: 40px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all .25s;
+      position: relative;
+      background: var(--bg3);
+    }
+    .upload-zone:hover,
+    .upload-zone.dragover {
+      border-color: var(--accent);
+      background: rgba(124,106,247,0.07);
+    }
+    .upload-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+    .upload-icon { font-size: 40px; margin-bottom: 12px; }
+    .upload-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .upload-sub {
+      font-size: 13px;
+      color: var(--text3);
+    }
+    .file-preview {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: rgba(124,106,247,0.1);
+      border: 1px solid rgba(124,106,247,0.25);
+      border-radius: var(--radius-sm);
+      margin: 12px 0 0;
+    }
+    .file-preview.show { display: flex; }
+    .file-preview .fname {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .file-preview .fsize {
+      font-size: 12px;
+      color: var(--text3);
+    }
+    .remove-btn {
+      background: none;
+      border: none;
+      color: var(--red);
+      cursor: pointer;
+      font-size: 18px;
+      padding: 0 4px;
+      line-height: 1;
+    }
+
+    /* ── Options Row ─────────────────────────────── */
+    .options-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 24px 0;
+    }
+    @media (max-width: 500px) {
+      .options-row { grid-template-columns: 1fr; }
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      color: var(--text2);
+      margin-bottom: 7px;
+      font-weight: 500;
+    }
+    .form-group select,
+    .form-group .radio-group {
+      width: 100%;
+    }
+    select {
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      padding: 10px 14px;
+      font-size: 14px;
+      font-family: var(--font);
+      width: 100%;
+      cursor: pointer;
+      outline: none;
+      transition: border-color .2s;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666680' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+    select:focus { border-color: var(--accent); }
+    .radio-group {
+      display: flex;
+      gap: 8px;
+    }
+    .radio-group label {
+      flex: 1;
+      margin: 0;
+    }
+    .radio-group input[type="radio"] { display: none; }
+    .radio-group .radio-btn {
+      display: block;
+      text-align: center;
+      padding: 10px 6px;
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .radio-group input[type="radio"]:checked + .radio-btn {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .radio-group .radio-btn:hover {
+      border-color: var(--accent2);
+    }
+
+    /* ── Submit Button ───────────────────────────── */
+    .submit-wrap { padding: 20px 24px; }
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--accent), #9333ea);
+      border: none;
+      border-radius: var(--radius);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: var(--font);
+      cursor: pointer;
+      transition: all .25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-submit::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+    }
+    .btn-submit:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(124,106,247,0.45);
+    }
+    .btn-submit:active:not(:disabled) { transform: translateY(0); }
+    .btn-submit:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ── Progress ────────────────────────────────── */
+    .progress-wrap {
+      display: none;
+      margin: 0 24px 20px;
+    }
+    .progress-wrap.show { display: block; }
+    .progress-label {
+      font-size: 13px;
+      color: var(--text2);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .progress-bar {
+      height: 6px;
+      background: var(--bg3);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent3));
+      border-radius: 3px;
+      transition: width .4s ease;
+      width: 0%;
+    }
+    .step-indicators {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text3);
+      flex-wrap: wrap;
+    }
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: color .3s;
+    }
+    .step.active { color: var(--accent2); }
+    .step.done   { color: var(--green); }
+    .step-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    /* ── Result Section ──────────────────────────── */
+    .result-section {
+      display: none;
+      margin: 0 24px 24px;
+    }
+    .result-section.show { display: block; }
+
+    .result-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .result-icon { font-size: 22px; }
+    .result-title { font-size: 16px; font-weight: 600; }
+    .result-stats {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .rstat {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .rstat strong { color: var(--accent2); }
+
+    /* Download buttons */
+    .download-btns {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .btn-dl {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 11px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      font-family: var(--font);
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .btn-dl-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-dl-primary:hover { background: #6d5df0; }
+    .btn-dl-secondary {
+      background: var(--bg3);
+      color: var(--text);
+      border: 1px solid var(--border2);
+    }
+    .btn-dl-secondary:hover { border-color: var(--accent2); }
+
+    /* Preview box */
+    .preview-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .preview-box-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .preview-box-header h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text2);
+    }
+    .copy-btn {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      color: var(--text2);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: all .2s;
+    }
+    .copy-btn:hover { border-color: var(--accent2); color: var(--text); }
+    .copy-btn.copied { color: var(--green); border-color: var(--green); }
+    #preview-text {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: var(--text2);
+      white-space: pre-wrap;
+      max-height: 260px;
+      overflow-y: auto;
+      line-height: 1.7;
+      padding-right: 4px;
+    }
+    #preview-text::-webkit-scrollbar { width: 4px; }
+    #preview-text::-webkit-scrollbar-track { background: transparent; }
+    #preview-text::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+    /* ── Error banner ────────────────────────────── */
+    .error-banner {
+      display: none;
+      margin: 0 24px 16px;
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #fca5a5;
+    }
+    .error-banner.show { display: block; }
+
+    /* ── Mid-page Ad ─────────────────────────────── */
+    .ad-mid-wrap {
+      margin: 24px 24px;
+    }
+
+    /* ── Sidebar ─────────────────────────────────── */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 80px;
+    }
+    .sidebar-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .sidebar-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text3);
+      padding: 12px 16px 8px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* How-to steps */
+    .how-steps {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .how-step {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 26px; height: 26px;
+      background: rgba(124,106,247,0.2);
+      border: 1px solid rgba(124,106,247,0.35);
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-text {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+    .step-text strong { color: var(--text); }
+
+    /* Language pills */
+    .lang-pills {
+      padding: 14px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .lang-pill {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 12px;
+      color: var(--text2);
+    }
+
+    /* ── Features Section ────────────────────────── */
+    .features-section {
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+    .features-section h2 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .feat-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: border-color .2s;
+    }
+    .feat-card:hover { border-color: var(--border2); }
+    .feat-icon { font-size: 28px; margin-bottom: 10px; }
+    .feat-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .feat-desc { font-size: 13px; color: var(--text2); line-height: 1.5; }
+
+    /* ── FAQ Section ─────────────────────────────── */
+    .faq-section {
+      max-width: 800px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+    .faq-section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 16px 20px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg2);
+      transition: background .2s;
+      user-select: none;
+    }
+    .faq-q:hover { background: var(--bg3); }
+    .faq-q .arrow {
+      font-size: 16px;
+      color: var(--text3);
+      transition: transform .25s;
+    }
+    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+      background: var(--bg2);
+    }
+    .faq-item.open .faq-a { max-height: 200px; }
+    .faq-a p {
+      padding: 14px 20px 18px;
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.7;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Bottom Ad ───────────────────────────────── */
+    .ad-bottom-wrap {
+      max-width: 1200px;
+      margin: 0 auto 32px;
+      padding: 0 20px;
+    }
+
+    /* ── Footer ──────────────────────────────────── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 14px;
+      color: var(--text3);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--text2); }
+    .footer-copy { font-size: 13px; color: var(--text3); }
+
+    /* ── Notification Toast ──────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      font-size: 14px;
+      box-shadow: var(--shadow);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all .3s ease;
+      z-index: 999;
+      max-width: 320px;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.success { border-color: rgba(34,197,94,0.4); color: #86efac; }
+    .toast.error   { border-color: rgba(239,68,68,0.4);  color: #fca5a5; }
+
+    /* ── Mobile tweaks ───────────────────────────── */
+    @media (max-width: 600px) {
+      .hero { padding: 40px 16px 28px; }
+      .hero-stats { gap: 20px; }
+      .app-card-header, .upload-zone, .options-row,
+      .submit-wrap, .progress-wrap, .result-section,
+      .ad-mid-wrap, .error-banner { margin-left: 14px; margin-right: 14px; }
+      .download-btns { flex-direction: column; }
+      .btn-dl { width: 100%; justify-content: center; }
+    }
+  </style>
+
+  <!-- ═══════════════════════════════════════════════
+       GOOGLE ADSENSE — Replace ca-pub-XXXXXXXXXXXXXXXX
+       with your actual Publisher ID
+  ═══════════════════════════════════════════════ -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+</head>
+<body>
+
+  <!-- ═══════════════════ HEADER ═══════════════════ -->
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="SubtitleAI Home">
+        <span class="logo-icon">🎬</span>
+        Subtitle<span>AI</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#how-to">How to Use</a>
+        <a href="#features">Features</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══════════════════ HERO ════════════════════ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-badge">
+      <span class="dot" aria-hidden="true"></span>
+      Free — No Signup Required
+    </div>
+    <h1 id="hero-title">
+      AI <span class="highlight">Subtitle Generator</span><br>
+      for Every Video
+    </h1>
+    <p class="hero-sub">
+      Video upload karein — automatic SRT, VTT subtitles pao.<br>
+      Urdu, Hindi, English, Arabic aur 99+ languages support.
+    </p>
+    <div class="hero-stats" role="list">
+      <div class="stat" role="listitem">
+        <div class="stat-num">99+</div>
+        <div class="stat-label">Languages</div>
+      </div>
+      <div class="stat" role="listitem">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Free</div>
+      </div>
+      <div class="stat" role="listitem">
+        <div class="stat-num">SRT/VTT</div>
+        <div class="stat-label">Formats</div>
+      </div>
+      <div class="stat" role="listitem">
+        <div class="stat-num">500MB</div>
+        <div class="stat-label">Max Size</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ TOP AD ════════════════════ -->
+  <div class="ad-top-wrap" aria-label="Advertisement">
+    <div class="ad-slot ad-slot-leader">
+      <!-- AdSense / Monetag leaderboard ad here -->
+      <!-- Example AdSense:
+      <ins class="adsbygoogle" style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="1234567890"
+           data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      -->
+      <span>Advertisement</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ MAIN ════════════════════ -->
+  <main class="main" id="app">
+    <!-- ── Tool Column ── -->
+    <div>
+      <article class="app-card" aria-label="Subtitle Generator Tool">
+
+        <div class="app-card-header">
+          <h2>🎯 Generate Subtitles</h2>
+          <span class="free-badge">✓ Free &amp; Unlimited</span>
+        </div>
+
+        <!-- Upload Zone -->
+        <div class="upload-zone"
+             id="uploadZone"
+             role="button"
+             tabindex="0"
+             aria-label="Click ya drag karke video ya audio upload karein"
+             aria-describedby="upload-formats">
+          <input type="file"
+                 id="fileInput"
+                 accept=".mp4,.mov,.avi,.mkv,.webm,.m4v,.mp3,.wav,.m4a"
+                 aria-label="Video ya audio file select karein">
+          <div class="upload-icon" aria-hidden="true">📂</div>
+          <div class="upload-title">Click karein ya drag &amp; drop karein</div>
+          <div class="upload-sub" id="upload-formats">
+            MP4 · MOV · AVI · MKV · WEBM · MP3 · WAV — Max 500MB
+          </div>
+          <div class="file-preview" id="filePreview" role="status">
+            <span class="fname" id="fileName">—</span>
+            <span class="fsize" id="fileSize">—</span>
+            <button class="remove-btn" id="removeFile" aria-label="File remove karein" title="Remove file">✕</button>
+          </div>
+        </div>
+
+        <!-- Options -->
+        <div class="options-row">
+          <div class="form-group">
+            <label for="langSelect">🌐 Language</label>
+            <select id="langSelect" aria-label="Video ki language select karein">
+              <option value="auto">🔍 Auto Detect</option>
+              <option value="ur">🇵🇰 Urdu (اردو)</option>
+              <option value="en">🇺🇸 English</option>
+              <option value="hi">🇮🇳 Hindi (हिन्दी)</option>
+              <option value="ar">🇸🇦 Arabic (عربي)</option>
+              <option value="fr">🇫🇷 French</option>
+              <option value="de">🇩🇪 German</option>
+              <option value="es">🇪🇸 Spanish</option>
+              <option value="zh">🇨🇳 Chinese</option>
+              <option value="ja">🇯🇵 Japanese</option>
+              <option value="tr">🇹🇷 Turkish</option>
+              <option value="ru">🇷🇺 Russian</option>
+              <option value="pt">🇧🇷 Portuguese</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>📄 Output Format</label>
+            <div class="radio-group" role="radiogroup" aria-label="Output format select karein">
+              <label>
+                <input type="radio" name="fmt" value="SRT" checked>
+                <span class="radio-btn">SRT</span>
+              </label>
+              <label>
+                <input type="radio" name="fmt" value="VTT">
+                <span class="radio-btn">VTT</span>
+              </label>
+              <label>
+                <input type="radio" name="fmt" value="TXT">
+                <span class="radio-btn">TXT</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="submit-wrap">
+          <button class="btn-submit" id="submitBtn" disabled aria-describedby="submit-hint">
+            <span id="submitIcon">🚀</span>
+            <span id="submitText">Pehle file upload karein</span>
+          </button>
+          <p id="submit-hint" style="font-size:12px;color:var(--text3);text-align:center;margin-top:8px;">
+            File upload karne ke baad button active ho jayega
+          </p>
+        </div>
+
+        <!-- Error Banner -->
+        <div class="error-banner" id="errorBanner" role="alert" aria-live="assertive"></div>
+
+        <!-- Progress -->
+        <div class="progress-wrap" id="progressWrap" role="status" aria-live="polite">
+          <div class="progress-label">
+            <span id="progressMsg">Processing...</span>
+            <span id="progressPct">0%</span>
+          </div>
+          <div class="progress-bar" aria-label="Progress bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="step-indicators" aria-label="Processing steps">
+            <div class="step" id="step1"><span class="step-dot"></span>File check</div>
+            <div class="step" id="step2"><span class="step-dot"></span>Audio extract</div>
+            <div class="step" id="step3"><span class="step-dot"></span>AI transcribing</div>
+            <div class="step" id="step4"><span class="step-dot"></span>Building SRT</div>
+            <div class="step" id="step5"><span class="step-dot"></span>Done</div>
+          </div>
+        </div>
+
+        <!-- Mid-page Ad (between progress and results) -->
+        <div class="ad-mid-wrap" aria-label="Advertisement">
+          <div class="ad-slot">
+            <!-- Monetag / Adsterra banner ad here -->
+            <span>Advertisement</span>
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div class="result-section" id="resultSection" aria-live="polite">
+          <div class="result-header">
+            <span class="result-icon">✅</span>
+            <span class="result-title">Subtitles tayar hain!</span>
+          </div>
+          <div class="result-stats" id="resultStats"></div>
+          <div class="download-btns" id="downloadBtns"></div>
+          <div class="preview-box">
+            <div class="preview-box-header">
+              <h3>👁️ Preview</h3>
+              <button class="copy-btn" id="copyBtn" aria-label="Subtitle content copy karein">Copy</button>
+            </div>
+            <pre id="preview-text" tabindex="0" aria-label="Subtitle preview"></pre>
+          </div>
+        </div>
+
+      </article>
+    </div>
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar" aria-label="Help and information">
+
+      <!-- How to use -->
+      <div class="sidebar-card" id="how-to">
+        <div class="sidebar-card-title">How to Use</div>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">1</div>
+            <div class="step-text"><strong>Video upload karein</strong> — MP4, MOV ya koi bhi format</div>
+          </div>
+          <div class="how-step">
+            <div class="step-num">2</div>
+            <div class="step-text"><strong>Language select karein</strong> — ya Auto Detect chhodein</div>
+          </div>
+          <div class="how-step">
+            <div class="step-num">3</div>
+            <div class="step-text"><strong>Format chunein</strong> — SRT (YouTube), VTT (web), TXT (text)</div>
+          </div>
+          <div class="how-step">
+            <div class="step-num">4</div>
+            <div class="step-text"><strong>Generate karein</strong> — SRT file download ho jayegi</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Ad -->
+      <div class="sidebar-card" aria-label="Advertisement">
+        <div class="sidebar-card-title">Advertisement</div>
+        <div style="padding:12px;">
+          <div class="ad-slot ad-slot-square">
+            <!-- 300x250 box ad here -->
+            <span>Advertisement</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Supported Languages</div>
+        <div class="lang-pills">
+          <span class="lang-pill">🇵🇰 Urdu</span>
+          <span class="lang-pill">🇺🇸 English</span>
+          <span class="lang-pill">🇮🇳 Hindi</span>
+          <span class="lang-pill">🇸🇦 Arabic</span>
+          <span class="lang-pill">🇫🇷 French</span>
+          <span class="lang-pill">🇩🇪 German</span>
+          <span class="lang-pill">🇪🇸 Spanish</span>
+          <span class="lang-pill">🇨🇳 Chinese</span>
+          <span class="lang-pill">🇯🇵 Japanese</span>
+          <span class="lang-pill">🇹🇷 Turkish</span>
+          <span class="lang-pill">+89 more</span>
+        </div>
+      </div>
+
+    </aside>
+  </main>
+
+  <!-- ═══════════════════ FEATURES ════════════════ -->
+  <section class="features-section" id="features" aria-labelledby="features-title">
+    <h2 id="features-title">Features</h2>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon">🤖</div>
+        <div class="feat-title">AI Powered</div>
+        <div class="feat-desc">OpenAI Whisper model — state-of-the-art accuracy for 99 languages.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">⚡</div>
+        <div class="feat-title">Fast Processing</div>
+        <div class="feat-desc">1-2 minute mein subtitles ready — cloud pe chalta hai, aapka CPU nahi layta.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🌍</div>
+        <div class="feat-title">99+ Languages</div>
+        <div class="feat-desc">Urdu, Hindi, Arabic, English — koi bhi language auto detect karta hai.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📥</div>
+        <div class="feat-title">SRT &amp; VTT Export</div>
+        <div class="feat-desc">YouTube, TikTok, Premiere Pro — sab ke liye compatible formats.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔒</div>
+        <div class="feat-title">No Signup Needed</div>
+        <div class="feat-desc">Account banana zaroori nahi. Seedha upload karo, subtitle lo.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">💰</div>
+        <div class="feat-title">100% Free</div>
+        <div class="feat-desc">Koi hidden charges nahi. Hamesha ke liye free rahega.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ BOTTOM AD ═══════════════ -->
+  <div class="ad-bottom-wrap" aria-label="Advertisement">
+    <div class="ad-slot ad-slot-leader">
+      <!-- Bottom leaderboard ad -->
+      <span>Advertisement</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ FAQ ══════════════════════ -->
+  <section class="faq-section" id="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title">Frequently Asked Questions</h2>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span itemprop="name">Kya yeh tool bilkul free hai?</span>
+        <span class="arrow" aria-hidden="true">▼</span>
+      </div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Haan, 100% free hai. Koi subscription, koi signup, koi hidden charges nahi. Bas file upload karo aur subtitle download karo.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span itemprop="name">Urdu language subtitles sahi kaam karte hain?</span>
+        <span class="arrow" aria-hidden="true">▼</span>
+      </div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">OpenAI Whisper Urdu ke liye trained hai aur kafi accurate results deta hai. Clear audio mein 80-90% accuracy expect kar sakte hain.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span itemprop="name">Kitna waqt lagta hai subtitle generate karne mein?</span>
+        <span class="arrow" aria-hidden="true">▼</span>
+      </div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Normally 1-3 minute lagte hain. Badi files (500MB) mein thoda zyada waqt lag sakta hai. Server busy ho to wait karna par sakta hai.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span itemprop="name">Kaun se video formats support hain?</span>
+        <span class="arrow" aria-hidden="true">▼</span>
+      </div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">MP4, MOV, AVI, MKV, WEBM, M4V video formats aur MP3, WAV, M4A audio formats support hain. Maximum file size 500MB hai.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span itemprop="name">Generated SRT file YouTube mein kaise use karein?</span>
+        <span class="arrow" aria-hidden="true">▼</span>
+      </div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">YouTube Studio mein video open karein → Subtitles tab → Add → Upload file → SRT file select karein. Bas itna karna hai!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ══════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="#features">Features</a>
+        <a href="#faq">FAQ</a>
+        <a href="#" onclick="return false;">Privacy Policy</a>
+        <a href="#" onclick="return false;">Terms of Use</a>
+        <a href="#" onclick="return false;">Contact</a>
+      </div>
+      <p class="footer-copy">
+        &copy; <span id="year"></span> SubtitleAI — Free AI Subtitle Generator.
+        Powered by OpenAI Whisper.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════ TOAST ═══════════════════ -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ═══════════════════ JAVASCRIPT ══════════════ -->
+  <script>
+  "use strict";
+
+  // ── Config ─────────────────────────────────────────────────────────────────
+  // HuggingFace Space API endpoint — apna username aur space name yahan daalein
+  const HF_API = "https://YOUR-USERNAME-subtitle-app.hf.space/run/predict";
+
+  // ── DOM refs ────────────────────────────────────────────────────────────────
+  const fileInput    = document.getElementById("fileInput");
+  const uploadZone   = document.getElementById("uploadZone");
+  const filePreview  = document.getElementById("filePreview");
+  const fileName     = document.getElementById("fileName");
+  const fileSize     = document.getElementById("fileSize");
+  const removeFile   = document.getElementById("removeFile");
+  const submitBtn    = document.getElementById("submitBtn");
+  const submitText   = document.getElementById("submitText");
+  const submitIcon   = document.getElementById("submitIcon");
+  const errorBanner  = document.getElementById("errorBanner");
+  const progressWrap = document.getElementById("progressWrap");
+  const progressFill = document.getElementById("progressFill");
+  const progressMsg  = document.getElementById("progressMsg");
+  const progressPct  = document.getElementById("progressPct");
+  const resultSection= document.getElementById("resultSection");
+  const resultStats  = document.getElementById("resultStats");
+  const downloadBtns = document.getElementById("downloadBtns");
+  const previewText  = document.getElementById("preview-text");
+  const copyBtn      = document.getElementById("copyBtn");
+  const toast        = document.getElementById("toast");
+
+  // ── State ───────────────────────────────────────────────────────────────────
+  let selectedFile  = null;
+  let subtitleBlob  = null;
+  let subtitleFname = "subtitles.srt";
+  let processing    = false;
+
+  // ── Utility ─────────────────────────────────────────────────────────────────
+  function formatBytes(bytes) {
+    if (bytes < 1024)       return bytes + " B";
+    if (bytes < 1048576)    return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / 1048576).toFixed(1) + " MB";
+  }
+
+  function showToast(msg, type = "success") {
+    toast.textContent = msg;
+    toast.className   = `toast ${type} show`;
+    clearTimeout(toast._t);
+    toast._t = setTimeout(() => toast.classList.remove("show"), 3500);
+  }
+
+  function showError(msg) {
+    errorBanner.textContent = "❌ " + msg;
+    errorBanner.classList.add("show");
+  }
+  function hideError() { errorBanner.classList.remove("show"); }
+
+  function setProgress(pct, msg) {
+    progressFill.style.width = pct + "%";
+    progressMsg.textContent  = msg;
+    progressPct.textContent  = pct + "%";
+  }
+
+  function setStep(n) {
+    for (let i = 1; i <= 5; i++) {
+      const el = document.getElementById("step" + i);
+      el.classList.remove("active", "done");
+      if (i < n)  el.classList.add("done");
+      if (i === n) el.classList.add("active");
+    }
+  }
+
+  // ── File validation ─────────────────────────────────────────────────────────
+  const ALLOWED_TYPES = new Set([
+    "video/mp4","video/quicktime","video/x-msvideo","video/x-matroska",
+    "video/webm","video/m4v","audio/mpeg","audio/wav","audio/x-wav",
+    "audio/mp4","audio/m4a","audio/aac","application/octet-stream"
+  ]);
+  const ALLOWED_EXT = /\.(mp4|mov|avi|mkv|webm|m4v|mp3|wav|m4a)$/i;
+  const MAX_SIZE = 500 * 1024 * 1024; // 500 MB
+
+  function validateFile(file) {
+    if (!ALLOWED_EXT.test(file.name)) {
+      return "Format support nahi hota. MP4, MOV, AVI, MKV, WEBM, MP3, WAV, M4A use karein.";
+    }
+    if (file.size > MAX_SIZE) {
+      return "File 500MB se badi hai. Chota file use karein.";
+    }
+    if (file.size === 0) {
+      return "File khali hai (0 bytes).";
+    }
+    return null;
+  }
+
+  function handleFile(file) {
+    hideError();
+    const err = validateFile(file);
+    if (err) { showError(err); return; }
+
+    selectedFile = file;
+    fileName.textContent = file.name;
+    fileSize.textContent = formatBytes(file.size);
+    filePreview.classList.add("show");
+
+    submitBtn.disabled  = false;
+    submitText.textContent = "Subtitles Generate Karo";
+    submitIcon.textContent = "🚀";
+  }
+
+  // ── File input events ───────────────────────────────────────────────────────
+  fileInput.addEventListener("change", e => {
+    if (e.target.files[0]) handleFile(e.target.files[0]);
+  });
+
+  uploadZone.addEventListener("dragover", e => {
+    e.preventDefault();
+    uploadZone.classList.add("dragover");
+  });
+  uploadZone.addEventListener("dragleave", () => uploadZone.classList.remove("dragover"));
+  uploadZone.addEventListener("drop", e => {
+    e.preventDefault();
+    uploadZone.classList.remove("dragover");
+    const file = e.dataTransfer.files[0];
+    if (file) handleFile(file);
+  });
+
+  // Keyboard accessibility for upload zone
+  uploadZone.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      fileInput.click();
+    }
+  });
+
+  removeFile.addEventListener("click", e => {
+    e.stopPropagation();
+    selectedFile  = null;
+    fileInput.value = "";
+    filePreview.classList.remove("show");
+    submitBtn.disabled  = true;
+    submitText.textContent = "Pehle file upload karein";
+    submitIcon.textContent = "🚀";
+    hideError();
+    progressWrap.classList.remove("show");
+    resultSection.classList.remove("show");
+  });
+
+  // ── Main submit logic ───────────────────────────────────────────────────────
+  submitBtn.addEventListener("click", async () => {
+    if (processing || !selectedFile) return;
+    processing = true;
+    hideError();
+    resultSection.classList.remove("show");
+
+    const lang   = document.getElementById("langSelect").value;
+    const fmt    = document.querySelector('input[name="fmt"]:checked').value;
+
+    // UI — loading state
+    submitBtn.disabled     = true;
+    submitText.textContent = "Processing...";
+    submitIcon.textContent = "⏳";
+    progressWrap.classList.add("show");
+    setProgress(5, "File bhej rahe hain...");
+    setStep(1);
+
+    try {
+      // Convert file to base64 for Gradio API
+      const b64 = await fileToBase64(selectedFile);
+      setProgress(15, "Server par upload kar rahe hain...");
+      setStep(2);
+
+      // ── Call HuggingFace Gradio API ──
+      // NOTE: Gradio /run/predict endpoint expects { data: [...] }
+      const payload = {
+        data: [
+          { name: selectedFile.name, data: b64 },  // file
+          lang,                                      // language
+          fmt                                        // format
+        ]
+      };
+
+      setProgress(30, "AI subtitle generate kar raha hai...");
+      setStep(3);
+
+      const resp = await fetch(HF_API, {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify(payload),
+        signal:  AbortSignal.timeout(600_000),  // 10 min timeout
+      });
+
+      if (!resp.ok) {
+        const txt = await resp.text().catch(() => "");
+        throw new Error(`Server error ${resp.status}: ${txt.slice(0,200)}`);
+      }
+
+      const json = await resp.json();
+      setProgress(85, "Subtitle file bana rahe hain...");
+      setStep(4);
+
+      if (json.error) throw new Error(json.error);
+
+      // Gradio returns data array: [file_path, content_string, info_string]
+      const [filePath, content, infoMsg] = json.data;
+
+      if (!content || content.trim().length === 0) {
+        throw new Error("Subtitle content khali hai. Koi speech detect nahi hua.");
+      }
+
+      setProgress(100, "Tayyar hai!");
+      setStep(5);
+
+      // Parse info
+      const stats = parseInfo(infoMsg || "");
+
+      // Show result
+      showResult(content, fmt, stats);
+      showToast("✅ Subtitles tayar hain! Download karein.");
+
+    } catch (err) {
+      let msg = err.message || "Unknown error";
+      if (err.name === "TimeoutError") {
+        msg = "Server timeout — thodi der baad dobara try karein.";
+      } else if (!navigator.onLine) {
+        msg = "Internet connection check karein.";
+      }
+      showError(msg);
+      setProgress(0, "");
+      progressWrap.classList.remove("show");
+      showToast("❌ Error aayi — " + msg.slice(0,60), "error");
+    } finally {
+      processing = false;
+      submitBtn.disabled     = false;
+      submitText.textContent = "Dobara Generate Karein";
+      submitIcon.textContent = "🔄";
+    }
+  });
+
+  // ── Helpers ─────────────────────────────────────────────────────────────────
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload  = () => resolve(reader.result);  // includes data: prefix
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function parseInfo(infoMsg) {
+    const out = { lang: "—", segments: "—", duration: "—", format: "—" };
+    const m = {
+      lang:     infoMsg.match(/language:\s*([^\n]+)/i),
+      segments: infoMsg.match(/segments:\s*(\d+)/i),
+      duration: infoMsg.match(/duration:\s*([^\n]+)/i),
+      format:   infoMsg.match(/format:\s*([^\n]+)/i),
+    };
+    if (m.lang)     out.lang     = m.lang[1].trim();
+    if (m.segments) out.segments = m.segments[1].trim();
+    if (m.duration) out.duration = m.duration[1].trim();
+    if (m.format)   out.format   = m.format[1].trim();
+    return out;
+  }
+
+  function showResult(content, fmt, stats) {
+    // Stats chips
+    resultStats.innerHTML = `
+      <div class="rstat">🌐 Language: <strong>${stats.lang}</strong></div>
+      <div class="rstat">📝 Segments: <strong>${stats.segments}</strong></div>
+      <div class="rstat">⏱️ Duration: <strong>${stats.duration}</strong></div>
+      <div class="rstat">📄 Format: <strong>${fmt}</strong></div>
+    `;
+
+    // Create blob for download
+    const mime = fmt === "VTT" ? "text/vtt" : "text/plain";
+    subtitleBlob  = new Blob([content], { type: mime + ";charset=utf-8" });
+    subtitleFname = (selectedFile?.name.replace(/\.[^.]+$/, "") || "subtitle") + "." + fmt.toLowerCase();
+
+    // Download buttons
+    const url = URL.createObjectURL(subtitleBlob);
+    downloadBtns.innerHTML = `
+      <a href="${url}" download="${subtitleFname}"
+         class="btn-dl btn-dl-primary"
+         aria-label="${subtitleFname} download karein">
+        ⬇️ Download ${fmt}
+      </a>
+      <button class="btn-dl btn-dl-secondary" id="copyAllBtn">
+        📋 Copy All
+      </button>
+    `;
+    document.getElementById("copyAllBtn").addEventListener("click", () => {
+      copyToClipboard(content, "copyAllBtn");
+    });
+
+    // Preview (first 50 lines)
+    previewText.textContent = content.split("\n").slice(0, 50).join("\n");
+
+    resultSection.classList.add("show");
+    resultSection.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function copyToClipboard(text, btnId) {
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById(btnId) || copyBtn;
+      const orig = btn.textContent;
+      btn.textContent = "✓ Copied!";
+      btn.classList.add("copied");
+      showToast("📋 Clipboard mein copy ho gaya!");
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.classList.remove("copied");
+      }, 2000);
+    }).catch(() => showToast("Copy nahi hua — manually select karein.", "error"));
+  }
+
+  copyBtn.addEventListener("click", () => {
+    copyToClipboard(previewText.textContent, "copyBtn");
+  });
+
+  // ── FAQ accordion ───────────────────────────────────────────────────────────
+  document.querySelectorAll(".faq-q").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const item  = btn.parentElement;
+      const open  = item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach(i => {
+        i.classList.remove("open");
+        i.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+      });
+      if (!open) {
+        item.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+    btn.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  });
+
+  // ── Footer year ─────────────────────────────────────────────────────────────
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // ── Animate progress steps (fake ticks while HF is thinking) ───────────────
+  let fakeTick;
+  const origSubmit = submitBtn.onclick;
+  const observer   = new MutationObserver(() => {
+    if (progressWrap.classList.contains("show")) {
+      let p = 30;
+      clearInterval(fakeTick);
+      fakeTick = setInterval(() => {
+        p = Math.min(p + 0.4, 80);
+        if (progressFill.style.width !== "100%") {
+          const cur = parseFloat(progressFill.style.width) || 0;
+          if (cur < 80) setProgress(cur + 0.4, progressMsg.textContent);
+        } else {
+          clearInterval(fakeTick);
+        }
+      }, 800);
+    } else {
+      clearInterval(fakeTick);
+    }
+  });
+  observer.observe(progressWrap, { attributes: true, attributeFilter: ["class"] });
+
+  </script>
+
+</body>
+</html>
